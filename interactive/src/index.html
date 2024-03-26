@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+ <meta charset="UTF-8" />
+ <title>Guarda Nacional Republicana</title>
+
+
+ <link href="./css/styles.css" rel="stylesheet" />
+
+
+ <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+ <script src="./js/main.js"></script>
+
+
+ <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+
+<body>
+ <div class="header">
+   <img src="images/gnr.png" alt="Logo" width="32" height="32" />
+   <span class="header__title">Guarda Nacional Republicana</span>
+
+
+   <ul class="menu-items">
+     <li>Quem Somos</li>
+     <li>Áreas de Atuação</li>
+     <li>Imprensa</li>
+     <li>Contactos</li>
+   </ul>
+ </div>
+
+
+ <div class="title">
+   <h1>Informe-se com o nosso Avatar</h1>
+ </div>
+
+
+ <div class="main">
+   <div class="main-block">
+     <h2>Exemplos de assuntos em que o Avatar pode ajudar:</h2>
+
+
+     <div class="suggested-questions">
+       <button onclick="window.speak(`Em que ano foi criada a GNR?`)">
+         Em que ano foi criada a GNR?
+       </button>
+
+
+       <button onclick="window.speak(`Qual é o contato de emergência?`)">
+         Qual é o contato de emergência?
+       </button>
+
+
+       <button onclick="window.speak(`Qual é a formação dos membros da GNR?`)">
+         Qual é a formação dos membros da GNR?
+       </button>
+     </div>
+   </div>
+
+
+   <div class="avatar-block">
+     <div id="remoteVideo">
+     </div>
+     <canvas id="canvas" width="720" height="1080" style="background-color: transparent;" hidden="hidden"></canvas>
+     <canvas id="tmpCanvas" width="720" height="1080" hidden="hidden"></canvas>
+    
+     <fluent-card class="record-card">
+       <div class="outerbutton">
+         <button id="startRecording" onclick="window.startRecording()" class="round-button">
+           <i id="buttonIcon" class="fas fa-microphone"></i>
+         </button>
+       </div>
+
+
+       <label id="spokenText" for="spokenText">
+         Clique no microfone para começar a falar ou escreva a sua pergunta:
+       </label>
+      
+       <div id="chatBox" style="width: 300px; height: 200p">
+         <div id="chatContent"></div>
+       </div>
+       <input type="text" id="userInput" style="width: 240px; margin-top: 10px;" />
+       <button onclick="processTextInput()" style="width: 100px; margin-top: 10px;">Submeter</button>
+    
+     </fluent-card>
+   </div>
+
+
+
+
+
+
+   <div class="main-block">
+     <ul id="chathistory" class="chat-history"></ul>
+   </div>
+ </div>
+
+
+
+
+ <div id="loginOverlay">
+   <div id="gradientOverlay">
+     <div class="loginCard">
+       <div class="loginCard__header">Login</div>
+
+
+       <fluent-text-field appearance="outline" placeholder="user@email.com">Username</fluent-text-field>
+       <fluent-text-field appearance="outline" placeholder="****************">Password</fluent-text-field>
+
+
+       <button id="playVideo" onclick="window.startSession()">
+         <span id="playVideo__text" class="playVideo__text">Login</span>
+       </button>
+     </div>
+   </div>
+ </div>
+</body>
+
+
+
+
+
+
+
+
+</html>
+
